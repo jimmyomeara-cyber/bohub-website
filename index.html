@@ -62,6 +62,8 @@
     .beta p { margin: 0; }
     .beta strong { color: #065f46; }
     .beta a { color: #166534; font-weight: 600; }
+    .copy { background: #fff; border: 1px solid #16a34a; color: #166534; border-radius: 999px; padding: 2px 12px; font-size: .85rem; cursor: pointer; margin-left: 6px; font-family: inherit; }
+    .copy:hover { background: #ecfdf5; }
   </style>
 </head>
 <body>
@@ -119,7 +121,8 @@
         <p><strong>In test mode on the Play Store at the moment (July 2026).</strong><br />
         <strong>Want to try it out for free and give feedback?</strong><br />
         Any Irish farmer who wants to be involved in early testing of features,
-        contact me at <a href="mailto:info@bohub.ie?subject=B%C3%B3%20Hub%20early%20testing">info@bohub.ie</a>.</p>
+        contact me at <a href="mailto:info@bohub.ie?subject=Bo%20Hub%20early%20testing">info@bohub.ie</a>
+        <button class="copy" onclick="copyEmail(this)">Copy address</button></p>
       </div>
     </div>
 
@@ -131,8 +134,17 @@
       &copy; 2026 Bó Hub Technologies &middot; Bó Hub &middot;
       <a href="privacy.html">Privacy Policy</a> &middot;
       <a href="mailto:info@bohub.ie">info@bohub.ie</a>
+      <button class="copy" onclick="copyEmail(this)">Copy address</button>
     </footer>
   </div>
+  <script>
+    function copyEmail(btn) {
+      navigator.clipboard.writeText('info@bohub.ie').then(function () {
+        btn.textContent = 'Copied!';
+        setTimeout(function () { btn.textContent = 'Copy address'; }, 2000);
+      });
+    }
+  </script>
   <script data-goatcounter="https://bohub.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
